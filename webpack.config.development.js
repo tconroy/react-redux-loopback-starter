@@ -2,7 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  devtool: 'eval',
+  devtool: 'source-source-map',
+  debug: true,
   entry: [
     'babel-polyfill',
     'webpack-hot-middleware/client',
@@ -30,8 +31,11 @@ module.exports = {
         loader: 'json',
       },
       {
-        test: /\.css$/,
-        loader: 'style!css',
+        test: /\.(css|scss)$/,
+        loaders: [
+          'style?sourceMap',
+          'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+        ],
       },
     ],
   },

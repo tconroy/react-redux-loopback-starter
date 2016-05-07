@@ -19,9 +19,9 @@ app.use(webpackHotMiddleware(compiler));
 
 boot(app, __dirname);
 
-app.start = () => {
+app.start = () =>
   // start the web server
-  return app.listen(() => {
+  app.listen(() => {
     app.emit('started');
     const baseUrl = app.get('url').replace(/\/$/, '');
     console.log('Web server listening at: %s', baseUrl);
@@ -30,7 +30,6 @@ app.start = () => {
       console.log('Browse your REST API at %s%s', baseUrl, explorerPath);
     }
   });
-};
 
 if (require.main === module) {
   app.start();

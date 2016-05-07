@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import SmartComponent from './containers/SmartComponent';
-import configureStore from './store/configureStore';
-
-const store = configureStore();
+import Routes from './routes';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+injectTapEventPlugin();
 
 ReactDOM.render(
-  <Provider store={store}>
-    <SmartComponent />
-  </Provider>,
+  <MuiThemeProvider muiTheme={getMuiTheme()}>
+    <Routes />
+  </MuiThemeProvider>,
 	document.getElementById('root')
 );

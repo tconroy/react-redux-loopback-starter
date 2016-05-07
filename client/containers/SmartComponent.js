@@ -10,14 +10,13 @@ class SmartComponent extends Component {
   render() {
     return (
       <div>
-        <DumbComponent welcomeText={this.props.welcomeText} />
+        <DumbComponent welcomeText="hello world!" />
       </div>
     );
   }
 }
 
 SmartComponent.propTypes = {
-  welcomeText: PropTypes.string.isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 
